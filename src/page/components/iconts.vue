@@ -101,6 +101,7 @@ export default{
 												text-align:center;
 												padding-top:5px;
 												color:#212121;
+												background:#ffffff;
 											}
 											.icon{
 												position: relative;
@@ -120,5 +121,13 @@ export default{
 												width:58%;
 												padding:0px 21%;
 											}
-
-											</style>
+										.swiper-pagination{
+										position:relative;
+										bottom:0px;
+										}
+										.iconList >>> .swiper-pagination-bullet{
+										width:0.06rem;
+										height:0.06rem;
+										}
+											</style>										}
+										}
