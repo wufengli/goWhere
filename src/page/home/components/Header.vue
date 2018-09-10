@@ -7,11 +7,13 @@
 			<i class="iconfont icon-sousuo"></i>
 			请输入城市/景点/游玩主题
 		</div>
-		<div class="header-right ">{{City}}
+		<router-link  to="/city">
+			<div class="header-right ">{{City}}
 			<span>
 				<i class="iconfont icon-xiajiantou"></i>
 			</span>
-		</div>
+			</div>
+		</router-link>
 	</div>
 </template>
 <script>
@@ -56,5 +58,6 @@
 		width:0.64rem;
 		text-align: center;
 		margin-right:0.02rem;
+		color:#ffffff; 
 	}
 </style>
