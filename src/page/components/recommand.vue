@@ -18,46 +18,8 @@
 <script>
 export default{
 	name:"HomeRecommand" ,
-	data(){
-		return {
-			recommandList:[{
-			id:"0001",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1504/47/4730a0c01664b63d.water.jpg_200x200_d7f52253.jpg",
-			title:"武汉海昌极地海洋世界",
-			desc:"武汉海昌极地海洋世界,武汉的第一站武汉海昌极地海洋世界,武汉的第一站武汉海昌极地海洋世界,武汉的第一站"
-		},
-		{
-			id:"0002",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1705/99/99cad7081abb9771a3.img.jpg_200x200_d86753f0.jpg",
-			title:"知音号游船",
-			desc:"武汉海昌极地海洋世界,武汉的第一站武汉海昌极地海洋世界,武汉的第一站武汉海昌极地海洋世界,武汉的第一站"
-		},
-		{
-			id:"0003",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1603/b1/b1da46b5326eb99e90.water.jpg_200x200_2f0a2f3f.jpg",
-			title:"武汉欢乐谷",
-			desc:"孩子们的欢乐世界"
-		},
-		{
-			id:"0004",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1705/3a/3aaa2e3a21f47659a3.img.png_200x200_eeb5aec3.png",
-			title:"武汉维佳童话镇",
-			desc:"孩子们的欢乐世界"
-		},
-		{
-			id:"0005",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1802/ae/ae78cf6bc5aa1aea3.img.jpg_200x200_3ea2bad5.jpg",
-			title:"袋鼠玩趣城",
-			desc:"孩子们的欢乐世界"
-		},
-		{
-			id:"0006",
-			imgUrl:"http://img1.qunarzz.com/sight/p0/1509/ca/2c5c95c035a9f99ad613fad782798aea.water.jpg_200x200_fd92205b.jpg",
-			title:"武汉欢乐谷",
-			desc:"梁子湖龙湾度假村"
-		}
-		]
-		}
+	props:{
+		recommandList:Array
 	}
 }
 	

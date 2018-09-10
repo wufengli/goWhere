@@ -7,7 +7,7 @@
 			<i class="iconfont icon-sousuo"></i>
 			请输入城市/景点/游玩主题
 		</div>
-		<div class="header-right ">武汉
+		<div class="header-right ">{{City}}
 			<span>
 				<i class="iconfont icon-xiajiantou"></i>
 			</span>
@@ -16,7 +16,10 @@
 </template>
 <script>
 	export default{
-		name:'Header'
+		name:'Header',
+		props:{
+			City:String
+		}
 	}
 </script>
 <style lang="stylus" scoped>

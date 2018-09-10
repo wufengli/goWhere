@@ -3,8 +3,8 @@
 <swiper :options="swiperOption" class="wraps">
 <swiper-slide v-for="(page,index) of pages" :key="index">
 <div class="icon" v-for="item in page" :key="item.id">
-<img class="imgIcon" :src="item.imgurl" />
-<p class="iconP">{{item.pName}}</p>
+<img class="imgIcon" :src="item.imgUrl" />
+<p class="iconP">{{item.desc}}</p>
 </div>
 </swiper-slide>
 <div class="swiper-pagination  pagination"  slot="pagination"></div>
@@ -14,72 +14,23 @@
 <script>
 export default{
 	name:"HomeIconts",
+	props:{
+		icons:Array
+	},
 	data(){
 		return{
 			swiperOption:{
 				autoplay:false,
 				pagination: '.swiper-pagination'
-				},
-				imgList:[
-				{
-					id:"001",
-					imgurl:"http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-					pName:"景点门票"
-					},
-					{
-						id:"002",
-						imgurl:"http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-						pName:"武汉旅游"
-						},
-						{
-							id:"003",
-							imgurl:"http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-							pName:"游乐场"
-							},
-							{
-								id:"004",
-								imgurl:"http://img1.qunarzz.com/piao/fusion/1803/6a/45f595250c73d102.png",
-								pName:"夏日玩水"
-								},
-								{
-									id:"005",
-									imgurl:"http://img1.qunarzz.com/piao/fusion/1803/50/26ffa31b56646402.png",
-									pName:"海洋馆"
-									},
-									{
-										id:"006",
-										imgurl:"http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-										pName:"一日游"
-										},
-										{
-											id:"007",
-											imgurl:"http://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png",
-											pName:"名胜古迹"
-											},
-											{
-												id:"008",
-												imgurl:"http://img1.qunarzz.com/piao/fusion/1804/95/8d02011d149bdb02.png",
-												pName:"汽车票"
-												},
-												{
-													id:"009",
-													imgurl:"http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png",
-													pName:"水上乐园"
-													},
-													{
-														id:"010",
-														imgurl:"http://img1.qunarzz.com/piao/fusion/1803/80/416c6ab3368d1f02.png",
-														pName:"全部玩乐"
-													}
-													]
-												}
-												},
-												computed:{
-													pages(){
-														const pages=[];
-														this.imgList.forEach((item,index)=>{
-															const page=Math.floor(index/8);
-															if(!pages[page]){
+				}
+			}
+			},
+			computed:{
+									pages(){
+										const pages=[];
+											this.icons.forEach((item,index)=>{
+											const page=Math.floor(index/8);
+											if(!pages[page]){
 																pages[page]=[]
 															}
 															pages[page].push(item); 
@@ -99,7 +50,7 @@ export default{
 												overflow: hidden;
 												font-size:0.14rem;
 												text-align:center;
-												padding-top:5px;
+												padding-top:10px;
 												color:#212121;
 												background:#ffffff;
 											}
@@ -120,6 +71,7 @@ export default{
 												display:block;
 												width:58%;
 												padding:0px 21%;
+												border-radious:10px;
 											}
 										.swiper-pagination{
 										position:relative;
