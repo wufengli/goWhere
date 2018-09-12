@@ -8,7 +8,7 @@
 			请输入城市/景点/游玩主题
 		</div>
 		<router-link  to="/city">
-			<div class="header-right ">{{City}}
+			<div class="header-right ">{{this.city}}
 			<span>
 				<i class="iconfont icon-xiajiantou"></i>
 			</span>
@@ -17,10 +17,15 @@
 	</div>
 </template>
 <script>
+	import {mapState,mapGetters} from 'vuex'
 	export default{
 		name:'Header',
 		props:{
 			City:String
+		},
+		computed:{
+			...mapGetters(['doubleCity']),//相当于vue中的计算属性
+			...mapState(['city'])
 		}
 	}
 </script>
@@ -50,12 +55,12 @@
 		line-height: 0.3rem;
 		background:#ffffff;
 		/*width:2.69rem;*/
-		flex:auto;
+		flex:1;
 		border-radius: 0.04rem;
 	}
 	.header-right{
 		line-height:0.44rem;
-		width:0.64rem;
+		margin-left:0.05rem;
 		text-align: center;
 		margin-right:0.02rem;
 		color:#ffffff; 

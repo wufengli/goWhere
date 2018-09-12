@@ -6,13 +6,14 @@
 		</div>
 		<div class="search-content" ref="serch" v-show="keyWord">
 			<ul>
-				<li class="searchBox border-bottom" v-for="item in list">{{item.name}}</li>
+				<li class="searchBox border-bottom" v-for="item in list" @click="changeCity(item.name)">{{item.name}}</li>
 				<li v-show="cannot">并未找到与它匹配的结果</li>
 			</ul>
 		</div>
    </div>
 </template>
 <script>
+	import {mapMutations} from 'vuex'
 	import Bscroll from 'better-scroll'
 	export default{
 		name:'citySearch',
@@ -25,6 +26,13 @@
 				list:[],
 				timmer:null
 			}
+		},
+		methods:{
+			changeCity(city){
+				this.changge(city);
+				this.$router.push('/');
+			},
+			...mapMutations(['changge'])
 		},
 		mounted(){
 			this.scroll=new Bscroll(this.$refs.serch)

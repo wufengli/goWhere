@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<home-header :City="city"></home-header>
+		<home-header :City="City"></home-header>
 		<home-swipe  :swiperList="swipers"></home-swipe>
 		<home-iconts :icons="icons"></home-iconts>
 		<home-bottom></home-bottom>
@@ -16,6 +16,7 @@
 	import recommand from './components/recommand'
 	import weekend from './components/weekend'
 	import axios from 'axios'
+	import {mapState} from 'vuex'
 	export default{
 		name:'home',
 		components:{
@@ -28,7 +29,8 @@
 		},
 		data(){
 			return {
-				city:'',
+				lastCity:'',
+				City:'',
 				swipers:[],
 				recommands:[],
 				weekendList:[],
@@ -37,7 +39,7 @@
 		},
 		methods:{
 			getHomeInfo(){
-				axios.get('/api/index.json')
+				axios.get('/api/index.json?city=' + this.city)
                      .then(this.getHomeInfoSuss)
                      .catch(function(error){
                      	console.log(error)
@@ -46,7 +48,7 @@
              getHomeInfoSuss(res){
              	var res=res.data;
 	            if(res.data&&res.ret){
-	            	this.city=res.data.city;
+	            	this.City=res.data.city;
 	            	this.swipers=res.data.swiperList;
 	            	this.recommands=res.data.recommendList;
 	            	this.weekendList=res.data.weekendList;
@@ -56,9 +58,19 @@
                 }
 
 		},
+		computed:{
+			...mapState(['city'])
+		},
 		mounted(){
+			this.lastCity=this.city;
 			this.getHomeInfo()
-		}
-
+			console.log("mounted")
+		},
+		activated(){
+			console.log("activated")
+			if(this.lastCity!=this.city){
+				this.getHomeInfo()
+			}
+		}//activated在每次加载都发生
 	} 
 </script>
