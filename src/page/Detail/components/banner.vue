@@ -1,30 +1,38 @@
 <template>
 	<div>
 		<div class="detailBanner" @click="handleBannerClick">
-			<img  class="bannerImg" src="http://img1.qunarzz.com/sight/p0/1805/14/14fa1498de97e60fa3.water.jpg_r_800x800_312574cc.jpg"/>
+			<img  class="bannerImg" :src="bannerImg"/>
 			<div class="bannerInfo">
-				<div class="bannerTitle">知音号游船</div>
+				<div class="bannerTitle">{{sightName}}</div>
 				<div class="bannerNum">
 					<i class="iconfont icon-tupian"></i>
-					<i>39</i>
+					<i v-html="getNum"></i>
 				</div>
 			</div>
 		</div>
-		<detail-gallary :imgUrl="imgs" v-show="showGallary" @close="closeGallary"></detail-gallary>
+		<detail-animate>
+		<detail-gallary :imgUrl="gallaryImgs" v-show="showGallary" @close="closeGallary"></detail-gallary>
+		</detail-animate>
 	</div>
 </template>
 <script>
 	import galary from '@common/gallary'
+	import animate from '@/common/Animate/animate'
 	export default{
 		name:'banner',
+		props:{
+			bannerImg:String,
+			sightName:String,
+			gallaryImgs:Array,
+		},
 		data(){
 				return{
-					imgs:['http://img1.qunarzz.com/sight/p0/1805/d7/d71a0e1728e5220aa3.water.jpg_r_800x800_39331e12.jpg','http://img1.qunarzz.com/sight/p0/1805/e7/e7a3dd2b6bef784ca3.water.jpg_r_800x800_7e9235d6.jpg'],
 					showGallary:false
 				}
 		},
 		components:{
-			DetailGallary:galary
+			DetailGallary:galary,
+			DetailAnimate:animate
 		},
 		methods:{
 		handleBannerClick(){
@@ -33,6 +41,11 @@
 		closeGallary(){
 			this.showGallary=false;
 		}
+		},
+		computed:{
+			getNum(){
+				return this.gallaryImgs.length
+			}
 		}
 		
 	} 

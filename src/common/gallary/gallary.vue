@@ -66,6 +66,6 @@
 		overflow:visible;
 	}
 	.pagination{
-		bottom:-1.5rem;
+		bottom:-1rem;
 	}
 </style>
